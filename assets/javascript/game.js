@@ -224,7 +224,11 @@ $(document).ready(function() {
 	// Attack
 	document.onkeyup = function(event) {
 		if (fightStarted === true && event.key === " ") {
-			// Generate attack"s damage values
+			// I chose to make the attacks a random value, because if it's a fixed value
+			// as the instructions indicate then the user could always choose the enemies
+			// from weaker to stronger and they would always win.
+			// And the user's attack is increased by a percentage after each win,
+			// otherwise it would be almost impossible to win the game.
 			var attack = (Math.floor(Math.random() * 15) + 1) * Math.floor(Math.pow(1.40, n));
 			var enemyAttack = Math.floor(Math.random() * 15) + 1;
 
