@@ -17,7 +17,6 @@ $(document).ready(function() {
 	var n = -2;
 
 	function reset() {
-		$("char1").html("<img src=\"../images/Yoda.png\">");
 		gameStarted = false;
 		gameEnded = false;
 		fightStarted = false;
