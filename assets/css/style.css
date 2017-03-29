@@ -1,79 +1,70 @@
 @font-face {
-    font-family: 'Starjhol';
-    src: url('../fonts/starjedi/Starjhol.ttf');
+  font-family: "Starjhol";
+  src: url("../fonts/starjedi/Starjhol.ttf");
 }
-
 @font-face {
-    font-family: 'Starjedi';
-    src: url('../fonts/starjedi/Starjedi.ttf');
+  font-family: "Starjedi";
+  src: url("../fonts/starjedi/Starjedi.ttf");
 }
-
 body {
-	background-image: url("../images/Background.jpg");
-	background-size: cover;
+  background-image: url("../images/Background.jpg");
+  background-size: cover;
 }
 
 .title {
-	position: relative;
-	top: 50px;
+  position: relative;
+  top: 50px;
+  height: auto;
 }
-
 .title h1 {
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	font-family: "Starjhol";
-	font-size: 150px;
-	line-height: 115px;
-	color: #e5b13a;
-}
-
-.row {
-	margin-left: auto;
-	margin-right: auto;
+  color: #e5b13a;
+  font-family: "Starjhol";
+  font-size: 150px;
+  line-height: 115px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .character, .enemy {
-	float: left;
-	position: relative;
-	top: 150px;
-	margin: 0;
-	width: 228px;
-	height: 400px;
+  float: left;
+  height: 400px;
+  margin: 0;
+  position: relative;
+  top: 150px;
+  width: 228px;
 }
-
 .character img, .enemy img {
-	position: absolute;
-	bottom: 30px;
-	height: 70%;
+  bottom: 30px;
+  height: 70%;
+  position: absolute;
 }
-
 .character p, .enemy p {
-	position: relative;
-	top: 380px;
-	text-align: center;
-	font-family: "Starjedi";
-	color: white;
-	font-size: 20px;
+  color: white;
+  font-family: "Starjedi";
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  top: 380px;
 }
 
 .score {
-	display: none;
-	position: relative;
-	top: -250px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	font-family: "Starjedi";
-	color: white;
-	font-size: 20px;
+  color: white;
+  display: none;
+  font-family: "Starjedi";
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  top: -250px;
 }
 
 .instructions {
-	position: relative;
-	top: 250px;
-	text-align: center;
-	font-family: "Starjedi";
-	color: #e5b13a;
-	font-size: 25px;
+  color: #e5b13a;
+  font-family: "Starjedi";
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 250px;
 }

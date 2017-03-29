@@ -1,23 +1,31 @@
 <!-- <!DOCTYPE html> -->
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Star Wars RPG</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	
-	<!-- Latest compiled and minified CSS -->
+	<!-- Reset CSS -->
+	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<!-- Optional theme -->
+	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
 
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/hover.css">
-	
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	
+
+	<!-- JavaScript -->
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
@@ -28,27 +36,27 @@
 		</div>
 
 		<div class="row characters">
-			<div class="character hvr-pulse-grow" charname="Yoda">
+			<div class="character hvr-pulse-grow" data-charname="Yoda">
 				<img src="assets/images/Yoda.png" alt="Yoda">
 				<p id="Yoda">Yoda</p>
 				<p id="Yoda_life">180</p>
 			</div>
-			<div class="character hvr-pulse-grow" charname="Spacetrooper">
+			<div class="character hvr-pulse-grow" data-charname="Spacetrooper">
 				<img src="assets/images/Spacetrooper.png" alt="Spacetrooper">
 				<p id="Spacetrooper">Spacetrooper</p>
 				<p id="Spacetrooper_life">100</p>
 			</div>
-			<div class="character hvr-pulse-grow" charname="Luke">
+			<div class="character hvr-pulse-grow" data-charname="Luke">
 				<img src="assets/images/Luke.png" alt="Luke">
 				<p id="Luke">Luke</p>
 				<p id="Luke_life">120</p>
 			</div>
-			<div class="character hvr-pulse-grow" charname="Darth_Vader">
+			<div class="character hvr-pulse-grow" data-charname="Darth_Vader">
 				<img src="assets/images/Darth_Vader.png" alt="Darth Vader">
 				<p id="Darth_Vader">Darth Vader</p>
 				<p id="Darth_Vader_life">150</p>
 			</div>
-			<div class="character hvr-pulse-grow" charname="R2D2">
+			<div class="character hvr-pulse-grow" data-charname="R2D2">
 				<img src="assets/images/R2D2.png" alt="R2D2">
 				<p id="R2D2">R2D2</p>
 				<p id="R2D2_life">100</p>

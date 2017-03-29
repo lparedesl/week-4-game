@@ -1,0 +1,80 @@
+@font-face {
+	font-family : "Starjhol";
+	src         : url("../fonts/starjedi/Starjhol.ttf");
+}
+
+@font-face {
+	font-family : "Starjedi";
+	src         : url("../fonts/starjedi/Starjedi.ttf");
+}
+
+body {
+	background-image : url("../images/Background.jpg");
+	background-size  : cover;
+}
+
+.title {
+	position : relative;
+	top      : 50px;
+	height   : auto;
+
+	h1 {
+		color       : #e5b13a;
+		font-family : "Starjhol";
+		font-size   : 150px;
+		line-height : 115px;
+		margin      : 0;
+		padding     : 0;
+		text-align  : center;
+	}
+}
+
+// .characters, .instructions {
+// 	margin-left  : auto;
+// 	margin-right : auto;
+// }
+
+.character, .enemy {
+	float    : left;
+	height   : 400px;
+	margin   : 0;
+	position : relative;
+	top      : 150px;
+	width    : 228px;
+
+	img {
+		bottom   : 30px;
+		height   : 70%;
+		position : absolute;
+	}
+
+	p {
+		color       : white;
+		font-family : "Starjedi";
+		font-size   : 20px;
+		position    : relative;
+		text-align  : center;
+		top         : 380px;
+	}
+}
+
+.score {
+	color        : white;
+	display      : none;
+	font-family  : "Starjedi";
+	font-size    : 20px;
+	margin-left  : auto;
+	margin-right : auto;
+	position     : relative;
+	text-align   : center;
+	top          : -250px;
+}
+
+.instructions {
+	color       : #e5b13a;
+	font-family : "Starjedi";
+	font-size   : 25px;
+	position    : relative;
+	text-align  : center;
+	top         : 250px;
+}
