@@ -8,48 +8,46 @@
 }
 body {
   background-image: url("../images/Background.jpg");
-  background-size: cover;
 }
 
 .title {
   position: relative;
-  top: 50px;
+  margin-top: 50px;
+  text-align: center;
   height: auto;
 }
 .title h1 {
   color: #e5b13a;
   font-family: "Starjhol";
   font-size: 150px;
-  line-height: 115px;
+  line-height: 110px;
   margin: 0;
-  padding: 0;
-  text-align: center;
 }
 
 .character, .enemy {
   float: left;
-  height: 400px;
   margin: 0;
   position: relative;
-  top: 150px;
-  width: 228px;
+  margin-top: 170px;
+  width: 20%;
 }
 .character img, .enemy img {
+  display: block;
   bottom: 30px;
-  height: 70%;
-  position: absolute;
+  height: 280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .character p, .enemy p {
-  color: white;
+  color: #fff;
   font-family: "Starjedi";
   font-size: 20px;
   position: relative;
   text-align: center;
-  top: 380px;
 }
 
 .score {
-  color: white;
+  color: #fff;
   display: none;
   font-family: "Starjedi";
   font-size: 20px;
@@ -57,7 +55,7 @@ body {
   margin-right: auto;
   position: relative;
   text-align: center;
-  top: -250px;
+  top: 100px;
 }
 
 .instructions {
@@ -66,5 +64,5 @@ body {
   font-size: 25px;
   position: relative;
   text-align: center;
-  top: 250px;
+  margin-top: 50px;
 }

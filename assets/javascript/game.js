@@ -24,54 +24,47 @@ $(document).ready(function() {
 		characters   = ["Yoda", "Spacetrooper", "Luke", "Darth_Vader", "R2D2"];
 		lives        = [180, 100, 120, 150, 100];
 		enemies      = [];
-		// newChosenCharacterLife;
-		// newEnemyLife;
-		// wins = 0,
-		// losses = 0,
 		n = -2;
+
 		$("[id=" + chosenCharacter.attr("data-charname") + "_life]").text(chosenCharacterLife);
 		$("[id=" + enemy.attr("data-charname") + "_life]").text(enemyLife);
 
 		$("body").css({
 			"background-image": "url(\"assets/images/Background.jpg\")",
-			"background-size": "cover"
 		});
 		$(".score").css({
 				"display": "none"
 		});
 		for (var i = 0; i < characters.length; i++) {
 			position     = $("[data-charname=" + characters[i] + "]").position();
-			moveLeft     = 328 + 228 * i - position.left;
-			moveTop      = 400 - position.top;
+			moveLeft = ($(window).width() - 234 * characters.length) / 2 + 234 * i - position.left;
+			moveTop = 270 - position.top;
 			$("[data-charname=" + characters[i] + "]").attr("class", "character hvr-pulse-grow");
-			$("[data-charname=" + characters[i] + "]").html("<img src=\"assets/images/" + characters[i] + ".png\">\n<p id=\"" + characters[i] + "\">" + characters[i] + "</p>\n<p id=\"" + characters[i] + "_life\">" + lives[i] + "</p>");
+			$("[data-charname=" + characters[i] + "]").html("<img src=\"assets/images/" + characters[i] + ".png\">\n<p id=\"" + characters[i] + "_name\">" + characters[i] + "</p>\n<p id=\"" + characters[i] + "_life\">" + lives[i] + "</p>");
 
-			$("[data-charname=" + characters[i] + "]").animate({
-				height: "40%"
+			$("[id=" + characters[i] + "_img]").animate({
+				height: "280px"
 			});
 			$("[data-charname=" + characters[i] + "]").animate({
 				top  : "+=" + moveTop,
 				left : "+=" + moveLeft
 			});
 
-			$("[id=" + characters[i] + "], [id=" + characters[i] + "_life]").animate({
+			$("[id=" + characters[i] + "_name], [id=" + characters[i] + "_life]").animate({
 				"font-size": "20px"
-			});
-			$('[id=' + characters[i] + '], [id=' + characters[i] + '_life]').css({
-				top  : 380,
-				left : 0,
 			});
 		}
 		$(".title").animate({
 				top: "+=50"
 		});
+		position = $(".instructions").position();
+		moveTop = 796 - position.top;
 		$(".instructions").animate({
-				top: "+=350"
+				top: "+=" + moveTop,
 		});
 		$(".instructions").html("<p>Click on a character to start playing...</p>");
 	}
 
-	// Select character
 	$(".character").on("click", function() {
 		if (gameStarted === false && gameEnded === false) {
 			chosenCharacter = $(this);
@@ -80,17 +73,17 @@ $(document).ready(function() {
 			});
 
 			$(".instructions").animate({
-				top: "-=200"
+				top: "-=150"
 			});
 			$(".instructions").text("Select an enemy...");
 
 			// Move chosen character
 			var position = chosenCharacter.position();
-			var moveLeft = position.left - 784;
-			var moveTop = position.top - 200;
+			var moveLeft = ($(window).width() - $(this).width()) / 2 - position.left;
+			var moveTop = 120 - position.top;
 			chosenCharacter.animate({
-				top  : "-=" + moveTop,
-				left : "-=" + moveLeft
+				left : "+=" + moveLeft,
+				top  : "+=" + moveTop,
 			});
 			chosenCharacter.removeClass("hvr-pulse-grow");
 
@@ -105,40 +98,36 @@ $(document).ready(function() {
 
 			// Move enemies
 			for (var i = 0; i < characters.length; i++) {
-				$("[data-charname=" + characters[i] + "]").removeClass("hvr-pulse-grow");
-				$("[data-charname=" + characters[i] + "]").addClass("hvr-pulse-shrink");
+				$("[data-charname=" + characters[i] + "]").attr("class", "enemy hvr-pulse-shrink");
 				position = $("[data-charname=" + characters[i] + "]").position();
-				moveLeft = 540 + 200 * i - position.left;
-				moveTop = 750 - position.top;
-				$("[data-charname=" + characters[i] + "]").animate({
-					height: "20%"
+				moveLeft = ($(window).width() - $(this).width() * characters.length) / 2 + $(this).width() * i - position.left;
+				moveTop = 640 - position.top;
+				$("[id=" + characters[i] + "_img]").animate({
+					height: "120px"
 				});
 				$("[data-charname=" + characters[i] + "]").animate({
+					left : "+=" + moveLeft,
 					top  : "+=" + moveTop,
-					left : "+=" + moveLeft
 				});
-				$("[id=" + characters[i] + "], [id=" + characters[i] + "_life]").animate({
+				$("[id=" + characters[i] + "_name], [id=" + characters[i] + "_life]").animate({
 					"font-size": "12px"
-				});
-				$("[id=" + characters[i] + "], [id=" + characters[i] + "_life]").css({
-					top  : 180,
-					left : -60,
 				});
 			}
 			gameStarted = true;
 		}
 		if (fightStarted === false && gameEnded === false) {
 			n++;
+			console.log("n", n);
 		}
 		$("body").css({
 			"background-image": "url(\"assets/images/Fight_Background.jpg\")",
-			"background-size": "cover"
 		});
 	});
 
 	// Select enemy
-	$(".character").on("click", function() {
+	$(document).on("click", ".enemy", function() {
 		if (n > -1 && gameStarted === true && fightStarted === false && gameEnded === false) {
+			console.log("this is n: " + n);
 			fightEnded = false;
 			enemy = $(this);
 			enemies.push(enemy);
@@ -146,9 +135,10 @@ $(document).ready(function() {
 			// Move character to the left
 			if (n === 0) {
 				position = chosenCharacter.position();
-				moveLeft = position.left - 200;
+				moveTop = 0 - position.top;
 				chosenCharacter.animate({
-					left: "-=250"
+					left: "-=250",
+					top: "+=" + moveTop,
 				});
 				$(".instructions").css({
 					top: "-=150"
@@ -163,19 +153,29 @@ $(document).ready(function() {
 			}
 
 			// Move enemy up
-			position = enemy.position();
-			moveLeft = position.left - 1034;
-			moveTop = position.top - 215;
-			enemy.animate({
-				top    : "-=" + moveTop,
-				left   : "-=" + moveLeft,
-				height : "40%"
+			$("[id=" + enemy.attr("data-charname") + "_img]").animate({
+				height : "280px"
 			});
-			$("[id=" + enemy.attr("data-charname") + "], [id=" + enemy.attr("data-charname") + "_life]").animate({
+			position = enemy.position();
+			if (n === 0) {
+				moveLeft = chosenCharacter.position().left + 250 - position.left;
+				moveTop = 0 - position.top;
+			}
+
+			else {
+				moveLeft = chosenCharacter.position().left + 500 - position.left;
+				moveTop = 150 - position.top;
+			}
+
+			enemy.animate({
+				left   : "+=" + moveLeft,
+				top    : "+=" + moveTop,
+			});
+
+			$("[id=" + enemy.attr("data-charname") + "_name], [id=" + enemy.attr("data-charname") + "_life]").animate({
 				"font-size": "20px"
 			});
-			$("[id=" + enemy.attr("data-charname") + "], [id=" + enemy.attr("data-charname") + "_life]").css({
-				top  : 380,
+			$("[id=" + enemy.attr("data-charname") + "_name], [id=" + enemy.attr("data-charname") + "_life]").css({
 				left : 0,
 			});
 			enemy.removeClass("hvr-pulse-shrink");
@@ -193,20 +193,14 @@ $(document).ready(function() {
 			for (var i = 0; i < characters.length; i++) {
 				position     = $("[data-charname=" + characters[i] + "]").position();
 				moveLeft     = 640 + 100 * n + 200 * i - position.left;
-				moveTop      = 750 - position.top;
+				if (n === 0) {
+					moveTop      = 490 - position.top;
+					$("[data-charname=" + characters[i] + "]").css({
+						top: "+=" + moveTop,
+					});
+				}
 				$("[data-charname=" + characters[i] + "]").animate({
-					height: "20%"
-				});
-				$("[data-charname=" + characters[i] + "]").animate({
-					top: "+=" + moveTop,
 					left: "+=" + moveLeft
-				});
-				$("[id=" + characters[i] + "], [id=" + characters[i] + "_life]").animate({
-					"font-size": "12px"
-				});
-				$("[id=" + characters[i] + "], [id=" + characters[i] + "_life]").css({
-					top: 180,
-					left: -60,
 				});
 			}
 
@@ -217,17 +211,15 @@ $(document).ready(function() {
 			$(".score").css({
 				'display': 'inline'
 			});
+			$(".container").css({
+				"height": $(window).height() + "px",
+			});
 		}
 	});
 
 	// Attack
 	document.onkeyup = function(event) {
 		if (fightStarted === true && event.key === " ") {
-			// I chose to make the attacks a random value, because if it's a fixed value
-			// as the instructions indicate then the user could always choose the enemies
-			// from weaker to stronger and they would always win.
-			// And the user's attack is increased by a percentage after each win,
-			// otherwise it would be almost impossible to win the game.
 			var attack = (Math.floor(Math.random() * 15) + 1) * Math.floor(Math.pow(1.40, n));
 			var enemyAttack = Math.floor(Math.random() * 15) + 1;
 
